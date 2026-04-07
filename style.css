@@ -1,0 +1,575 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lora:wght@400;500;700&display=swap');
+
+/* ============================================
+   BREAKPOINTS
+   mobile-first base: 320px and up (default)
+   tablet: @media (min-width: 600px)
+   desktop: @media (min-width: 1024px)
+   ============================================ */
+
+:root {
+    --color-primary: #121212;
+    --color-secondary: #1e1e1e;
+    --color-accent: #7c3aed;
+    --color-accent-2: #5b21b6;
+    --color-text: #e4e4e4;
+    --color-muted: #a0a0a0;
+    --color-surface: #2a2a2a;
+    --color-card: #353535;
+    --color-header-text: #111111;
+    --color-shadow: rgba(0, 0, 0, 0.5);
+
+    --font-body: 'Lora', Georgia, serif;
+    --font-heading: 'Playfair Display', serif;
+
+    --space-sm: 0.5rem;
+    --space-md: 1.5rem;
+    --space-lg: 3rem;
+}
+
+/* ============================================
+   CSS RESET
+   ============================================ */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-body);
+    background-color: var(--color-surface);
+    color: var(--color-text);
+    line-height: 1.6;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ============================================
+   TYPOGRAPHY SCALE
+   ============================================ */
+
+h1 {
+    font-family: var(--font-heading);
+    font-size: 3.6rem;
+    line-height: 1.2;
+    color: var(--color-primary);
+    margin: 0;
+}
+
+h2 {
+    font-family: var(--font-heading);
+    font-size: 2.8rem;
+    line-height: 1.3;
+    color: var(--color-accent);
+    margin: 0 0 var(--space-md);
+}
+
+h3 {
+    font-family: var(--font-heading);
+    font-size: 2.2rem;
+    line-height: 1.3;
+    color: var(--color-accent);
+    margin: 0 0 var(--space-md);
+}
+
+h4 {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    line-height: 1.4;
+    color: var(--color-accent);
+    margin: 0 0 var(--space-sm);
+}
+
+p {
+    font-size: 1.6rem;
+    line-height: 1.8;
+    color: var(--color-text);
+    margin: 0 0 var(--space-md);
+}
+
+small {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    color: var(--color-muted);
+}
+
+blockquote {
+    font-size: 1.8rem;
+    line-height: 1.7;
+    color: var(--color-text);
+    background-color: var(--color-card);
+    /* margin used to separate blockquote from surrounding content */
+    padding: var(--space-md);
+    border-left: 0.4rem solid var(--color-accent-2);
+    margin: var(--space-lg) 0;
+    border-radius: 1rem;
+}
+
+blockquote::before {
+    content: '\201C';
+    font-size: 3rem;
+    color: var(--color-accent-2);
+    margin-right: var(--space-sm);
+}
+
+code {
+    font-size: 1.4rem;
+    line-height: 1.5;
+    color: var(--color-accent);
+    background-color: var(--color-card);
+    padding: var(--space-sm);
+    border-radius: 0.4rem;
+}
+
+caption {
+    font-size: 1.4rem;
+    line-height: 1.5;
+    color: var(--color-muted);
+    margin-bottom: var(--space-sm);
+    caption-side: top;
+}
+
+/* ============================================
+   LINK STATES
+   ============================================ */
+
+a:link {
+    color: var(--color-accent);
+    text-decoration: none;
+}
+
+a:visited {
+    color: var(--color-muted);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--color-header-text);
+    background-color: var(--color-accent);
+}
+
+a:active {
+    color: var(--color-text);
+    background-color: var(--color-accent-2);
+}
+
+/* ============================================
+   LAYOUT LANDMARKS
+   ============================================ */
+
+/* padding used to create inner breathing room inside the header */
+header {
+    background-color: var(--color-accent);
+    color: var(--color-header-text);
+    padding: var(--space-lg);
+    display: flex;
+    align-items: center;
+    gap: var(--space-lg);
+    flex-wrap: wrap;
+    flex-direction: column;
+    text-align: center;
+}
+
+.header-text {
+    flex: 1 1 32rem;
+    text-align: center;
+}
+
+.header-text p {
+    color: var(--color-header-text);
+    font-size: 1.8rem;
+    margin-top: var(--space-sm);
+}
+
+.header-image {
+    flex: 0 1 18rem;
+    min-height: 18rem;
+    border-radius: 1.2rem;
+    background-color: var(--color-card);
+    border: 0.2rem solid var(--color-header-text);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text);
+    font-size: 1.8rem;
+    text-align: center;
+    padding: var(--space-md);
+    overflow: hidden;
+}
+
+.header-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* padding used to create space inside the navigation bar */
+nav {
+    background-color: var(--color-primary);
+    color: var(--color-text);
+    padding: var(--space-md);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: var(--space-md);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    flex-direction: column;
+}
+
+.logo {
+    font-family: var(--font-heading);
+    font-size: 2.2rem;
+    color: var(--color-accent);
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 100%;
+}
+
+/* padding used to increase clickable area on nav links */
+nav a {
+    display: inline-block;
+    padding: var(--space-sm) var(--space-md);
+    border-radius: 0.6rem;
+    transition: color 0.2s, background-color 0.2s;
+}
+
+nav a.active {
+    background-color: var(--color-accent);
+    color: var(--color-header-text);
+    border-radius: 0.6rem;
+}
+
+/* margin used to separate main from surrounding layout sections */
+main {
+    background-color: var(--color-surface);
+    color: var(--color-text);
+    padding: var(--space-lg);
+    margin: var(--space-lg);
+}
+
+/* padding inside cards; margin below separates them from next section */
+section,
+article,
+aside {
+    background-color: var(--color-card);
+    border: 0.1rem solid var(--color-accent);
+    border-radius: 1rem;
+    box-shadow: 0 0.4rem 1rem var(--color-shadow);
+    padding: var(--space-md);
+    margin-bottom: var(--space-lg);
+}
+
+/* padding used to create inner spacing in the footer */
+footer {
+    background-color: var(--color-secondary);
+    color: var(--color-text);
+    padding: var(--space-md);
+    text-align: center;
+    /* margin used to visually separate footer from main content */
+    margin-top: var(--space-lg);
+}
+
+footer a {
+    color: var(--color-accent);
+}
+
+/* ============================================
+   PSEUDO-ELEMENTS
+   ============================================ */
+
+h2::before {
+    content: "";
+    display: inline-block;
+    width: 0.6rem;
+    height: 2rem;
+    background-color: var(--color-accent);
+    margin-right: var(--space-sm);
+    border-radius: 0.4rem;
+    vertical-align: middle;
+}
+
+/* ============================================
+   BUTTONS
+   ============================================ */
+
+button {
+    font-family: var(--font-body);
+    font-size: 1.6rem;
+    padding: var(--space-sm) var(--space-md);
+    border: 0.1rem solid var(--color-accent);
+    border-radius: 0.8rem;
+    background-color: var(--color-accent);
+    color: var(--color-header-text);
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+button:hover {
+    background-color: var(--color-accent-2);
+    color: var(--color-text);
+}
+
+button:active {
+    transform: scale(0.97);
+}
+
+/* ============================================
+   FOCUS STATES
+   ============================================ */
+
+input:focus,
+textarea:focus,
+select:focus,
+button:focus,
+a:focus {
+    outline: none;
+    box-shadow: 0 0 0 0.3rem var(--color-accent);
+}
+
+/* ============================================
+   FORMS
+   ============================================ */
+
+input,
+textarea,
+select {
+    width: 100%;
+    padding: var(--space-sm);
+    border: 0.1rem solid var(--color-muted);
+    border-radius: 0.6rem;
+    font-family: var(--font-body);
+    font-size: 1.5rem;
+    background-color: var(--color-secondary);
+    color: var(--color-text);
+    margin-bottom: var(--space-md);
+}
+
+fieldset {
+    border: 0.1rem solid var(--color-accent);
+    border-radius: 1rem;
+    padding: var(--space-md);
+}
+
+legend {
+    color: var(--color-accent);
+    font-size: 1.6rem;
+    padding: 0 var(--space-sm);
+}
+
+label {
+    font-size: 1.5rem;
+    color: var(--color-text);
+}
+
+.form-group-inline {
+    display: flex;
+    gap: var(--space-md);
+    flex-wrap: wrap;
+}
+
+.form-group-inline > div {
+    flex: 1 1 20rem;
+}
+
+/* ============================================
+   TABLE
+   ============================================ */
+
+.table-wrapper {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    border: 0.1rem solid var(--color-muted);
+    padding: var(--space-sm);
+    text-align: left;
+    font-size: 1.5rem;
+}
+
+th {
+    background-color: var(--color-secondary);
+    color: var(--color-text);
+}
+
+/* alternating row colours using :nth-child */
+tbody tr:nth-child(even) {
+    background-color: var(--color-card);
+}
+
+/* ============================================
+   LISTS — :first-child / :last-child border removal
+   ============================================ */
+
+.skills-list li,
+.tech-list li {
+    font-size: 1.6rem;
+    margin-bottom: var(--space-sm);
+    border-top: 0.1rem solid var(--color-muted);
+    padding-top: var(--space-sm);
+}
+
+/* remove top border from first item */
+.skills-list li:first-child,
+.tech-list li:first-child {
+    border-top: none;
+    padding-top: 0;
+}
+
+/* remove bottom border/margin from last item */
+.skills-list li:last-child,
+.tech-list li:last-child {
+    margin-bottom: 0;
+}
+
+.skills-list,
+.tech-list {
+    padding-left: 2rem;
+    list-style: none;
+}
+
+/* ============================================
+   GRID — PROJECTS
+   ============================================ */
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: var(--space-md);
+}
+
+.project-card img {
+    border-radius: 1rem;
+    margin-bottom: var(--space-md);
+}
+
+/* ============================================
+   GRID — PAGE CARDS
+   ============================================ */
+
+.page-cards {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+}
+
+.card {
+    background-color: var(--color-card);
+    border: 0.1rem solid var(--color-accent);
+    border-radius: 1rem;
+    box-shadow: 0 0.4rem 1rem var(--color-shadow);
+    padding: var(--space-md);
+    transition: transform 0.2s;
+    display: grid;
+    align-content: start;
+    min-height: 22rem;
+}
+
+.card:hover,
+.project-card:hover {
+    transform: translateY(-4px);
+}
+
+.featured-card {
+    grid-column: span 1;
+}
+
+/* ============================================
+   GRID — TWO-COLUMN LAYOUT
+   ============================================ */
+
+.two-column-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+}
+
+.main-content,
+.sidebar {
+    background-color: var(--color-card);
+    border: 0.1rem solid var(--color-accent);
+    border-radius: 1rem;
+    padding: var(--space-md);
+    box-shadow: 0 0.4rem 1rem var(--color-shadow);
+}
+
+/* ============================================
+   RESPONSIVE — TABLET
+   ============================================ */
+
+@media (min-width: 600px) {
+    nav {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    nav ul {
+        flex-direction: row;
+        justify-content: flex-end;
+        width: auto;
+    }
+
+    header {
+        flex-direction: row;
+        text-align: left;
+    }
+
+    .header-text {
+        text-align: left;
+    }
+
+    .page-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .featured-card {
+        grid-column: span 2;
+    }
+}
+
+/* ============================================
+   RESPONSIVE — DESKTOP
+   ============================================ */
+
+@media (min-width: 1024px) {
+    .page-cards {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .featured-card {
+        grid-column: 1 / -1;
+    }
+
+    .two-column-layout {
+        grid-template-columns: 1fr 280px;
+    }
+}

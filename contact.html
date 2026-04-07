@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact page of Mohammed Salah.">
+    <title>Contact Me</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <div class="header-text">
+        <h1>Contact Me</h1>
+        <p>Get in touch through the form below</p>
+    </div>
+    <div class="header-image">
+        <img src="Me.png" alt="Profile Picture placeholder" width = "150">
+    </div>
+</header>
+
+<nav>
+    <div class="logo">Mohammed Salah</div>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Me</a></li>
+        <li><a href="skills.html">Skills</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="contact.html" class="active">Contact Me</a></li>
+        <li><a href="academic.html">Academic Result</a></li>
+    </ul>
+</nav>
+
+<main>
+
+    <section>
+        <h2>Contact Form</h2>
+
+        <form action="#" method="post">
+            <fieldset>
+                <legend>Personal Information</legend>
+
+                <label for="fullname">Full Name</label>
+                <input type="text" id="fullname" name="fullname"
+                       placeholder="Enter your full name" required maxlength="60">
+
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email"
+                       placeholder="Enter your email" required>
+
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone"
+                       placeholder="Enter your phone number" required>
+
+                <div class="form-group-inline">
+                    <div>
+                        <label for="age">Age</label>
+                        <input type="number" id="age" name="age"
+                               min="18" max="60" placeholder="Enter your age" required>
+                    </div>
+                    <div>
+                        <label for="date">Preferred Contact Date</label>
+                        <input type="date" id="date" name="date" required>
+                    </div>
+                </div>
+
+                <label for="interest">Interest Level</label>
+                <input type="range" id="interest" name="interest" min="1" max="10">
+
+                <label for="subject">Subject</label>
+                <select id="subject" name="subject" required>
+                    <optgroup label="Academic">
+                        <option value="assignment">Assignment</option>
+                        <option value="project">Project</option>
+                    </optgroup>
+                    <optgroup label="General">
+                        <option value="question">Question</option>
+                        <option value="feedback">Feedback</option>
+                    </optgroup>
+                </select>
+
+                <p>Services Needed</p>
+                <label><input type="checkbox" name="services" value="webhelp"> Web Help</label><br>
+                <label><input type="checkbox" name="services" value="codinghelp"> Coding Help</label><br>
+                <label><input type="checkbox" name="services" value="advice"> Study Advice</label>
+
+                <p>Preferred Contact Method</p>
+                <label><input type="radio" name="contactmethod" value="email" required> Email</label><br>
+                <label><input type="radio" name="contactmethod" value="phone"> Phone</label><br>
+                <label><input type="radio" name="contactmethod" value="whatsapp"> WhatsApp</label>
+
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="5" cols="40"
+                          placeholder="Write your message here"
+                          maxlength="300" required></textarea>
+
+                <button type="submit">Send</button>
+            </fieldset>
+        </form>
+    </section>
+
+</main>
+
+<footer>
+    <address>
+        Email: <a href="mailto:imohamd.xn@gmail.com">imohamd.xn@gmail.com</a><br>
+        Phone Number: +60182189465
+    </address>
+</footer>
+
+</body>
+</html>
